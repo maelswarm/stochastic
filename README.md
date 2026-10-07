@@ -2,6 +2,14 @@
 
 **Signals, not noise.** A self-hosted market dashboard for US stocks with live charts, locally computed metrics, 40 deterministic and stochastic signal detectors, and email alerts that fire on bar close.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/dashboard-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="docs/dashboard-light.png">
+  <img alt="The stochastic dashboard: watchlist, AAPL daily candlestick chart with volume, metrics grid, signal feed, and alert rules" src="docs/dashboard-light.png">
+</picture>
+
+<sub>The default dashboard layout. The screenshot uses synthetic sample data, not real prices.</sub>
+
 Each user brings their own free [Alpaca](https://alpaca.markets) API key. The app has no shared data subscription. Users' keys are encrypted at rest, and every indicator, metric and signal is computed from cached OHLCV candles, so the provider only ever supplies raw bars.
 
 ## Features
