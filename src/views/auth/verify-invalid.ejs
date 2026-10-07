@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head><%- include('../partials/head') %></head>
+<body>
+<%- include('../partials/header') %>
+<main class="auth-page marketing-page">
+  <h1>Link expired or invalid</h1>
+  <p>That verification link has already been used or has expired.</p>
+  <form action="/verify-email/resend" method="POST" class="auth-form">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required autofocus>
+    <button type="submit">Resend verification email</button>
+  </form>
+</main>
+<%- include('../partials/footer') %>
+</body>
+</html>

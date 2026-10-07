@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<%- include('partials/head') %>
+<link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body class="dashboard-body">
+<%- include('partials/header') %>
+<main class="dashboard">
+  <div class="dashboard-toolbar">
+    <div class="symbol-switcher">
+      <input type="text" id="symbol-search" placeholder="Search symbol&hellip;" autocomplete="off" spellcheck="false">
+      <div id="symbol-results" class="symbol-results" hidden></div>
+    </div>
+    <div class="active-symbol" id="active-symbol-display">
+      <span class="active-symbol-name">&mdash;</span>
+      <span class="active-symbol-price">&nbsp;</span>
+      <span class="active-symbol-change">&nbsp;</span>
+    </div>
+    <div class="timeframe-switcher" id="timeframe-switcher">
+      <button type="button" data-tf="1m">1m</button>
+      <button type="button" data-tf="5m">5m</button>
+      <button type="button" data-tf="15m">15m</button>
+      <button type="button" data-tf="1h">1h</button>
+      <button type="button" data-tf="4h">4h</button>
+      <button type="button" data-tf="1D" class="active">1D</button>
+      <button type="button" data-tf="1W">1W</button>
+    </div>
+    <div class="toolbar-spacer"></div>
+    <span class="conn-status" id="conn-status" data-state="connecting">&#9679; connecting</span>
+    <button type="button" class="icon-btn" id="notif-bell" aria-label="Notifications">&#128276;<span class="notif-badge" id="notif-badge" hidden>0</span></button>
+    <button type="button" class="icon-btn" id="add-widget-btn" aria-label="Add widget">+ Widget</button>
+    <button type="button" class="icon-btn" id="reset-layout-btn" aria-label="Reset layout">Reset layout</button>
+  </div>
+
+  <div id="widget-grid" class="widget-grid"></div>
+</main>
+
+<div id="notif-panel" class="notif-panel" hidden>
+  <div class="notif-panel-header">
+    <span>Notifications</span>
+    <button type="button" id="notif-mark-all">Mark all read</button>
+  </div>
+  <div id="notif-list" class="notif-list"></div>
+</div>
+
+<template id="widget-frame-template">
+  <section class="widget" data-widget-id="">
+    <header class="widget-header">
+      <span class="widget-title"></span>
+      <div class="widget-actions">
+        <button type="button" class="widget-remove" aria-label="Remove widget">&times;</button>
+      </div>
+    </header>
+    <div class="widget-body"></div>
+  </section>
+</template>
+
+<script src="/vendor/lightweight-charts.standalone.js"></script>
+<script type="module" src="/js/dashboard/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<%- include('partials/head') %>
+<link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+<%- include('partials/header') %>
+<main class="settings-page">
+  <h1>Settings</h1>
+
+  <section class="settings-section">
+    <h2>API keys</h2>
+    <p class="settings-hint">
+      stochastic doesn't ship with a shared data subscription &mdash; connect your own free
+      provider key so the dashboard can fetch quotes and history on your behalf. Keys are
+      encrypted at rest and only ever decrypted server-side to make the API call.
+    </p>
+    <div id="key-cards" class="key-cards"></div>
+  </section>
+
+  <section class="settings-section">
+    <h2>Alert preferences</h2>
+    <label class="settings-toggle">
+      <input type="checkbox" id="digest-mode">
+      Send a daily digest instead of instant emails
+    </label>
+    <p class="settings-hint">Daily email cap: <span id="email-cap-display">&mdash;</span></p>
+  </section>
+</main>
+<script type="module" src="/js/settings.js"></script>
+</body>
+</html>

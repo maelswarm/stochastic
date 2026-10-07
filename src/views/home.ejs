@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head><%- include('partials/head') %></head>
+<body>
+<%- include('partials/header') %>
+<main class="landing">
+  <section class="hero">
+    <h1>Signals, not noise.</h1>
+    <p class="hero-sub">
+      A live dashboard for blue-chip US stocks &mdash; computed metrics,
+      deterministic and stochastic signal detection, a top-of-book orderbook, and email alerts
+      the moment a pattern fires. Bring your own free Alpaca API key; nothing shared, nothing hidden.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="/signup">Get started free</a>
+      <a class="btn btn-ghost" href="/login">Log in</a>
+    </div>
+  </section>
+
+  <section class="feature-grid">
+    <div class="feature-card">
+      <h3>Modular dashboard</h3>
+      <p>Chart, metrics grid, orderbook, trade tape, signal feed, and alerts &mdash; add, remove, and rearrange the widgets you want.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Metrics beyond the API</h3>
+      <p>Returns, volatility, drawdown, Sharpe/Sortino, Hurst exponent, mean-reversion half-life &mdash; all computed locally from cached OHLCV.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Deterministic + stochastic signals</h3>
+      <p>MA crosses, MACD, RSI, Bollinger squeezes, Ichimoku, and beyond &mdash; plus z-score reversion, Hurst regime shifts, and Monte Carlo touch probabilities.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Email the moment it fires</h3>
+      <p>Set a cooldown, pick instant or daily digest, and get notified by email when your signal triggers on a closed bar.</p>
+    </div>
+  </section>
+</main>
+<%- include('partials/footer') %>
+</body>
+</html>

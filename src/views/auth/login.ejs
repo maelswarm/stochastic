@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head><%- include('../partials/head') %></head>
+<body>
+<%- include('../partials/header') %>
+<main class="auth-page marketing-page">
+  <h1>Log in</h1>
+  <%- include('../partials/flash') %>
+  <% if (errors && errors.length) { %>
+    <ul class="form-errors">
+      <% errors.forEach(function(e) { %><li><%= e %></li><% }) %>
+    </ul>
+  <% } %>
+  <form action="/login" method="POST" class="auth-form">
+    <input type="hidden" name="next" value="<%= next %>">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" value="<%= email %>" required autofocus>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required>
+
+    <% if (turnstileSiteKey) { %>
+      <div class="cf-turnstile" data-sitekey="<%= turnstileSiteKey %>" data-theme="auto"></div>
+    <% } %>
+
+    <button type="submit">Log in</button>
+  </form>
+  <% if (typeof showResend !== 'undefined' && showResend) { %>
+    <form action="/verify-email/resend" method="POST" class="inline-form">
+      <input type="hidden" name="email" value="<%= email %>">
+      <button type="submit" class="link-button">Resend verification email</button>
+    </form>
+  <% } %>
+  <p class="auth-alt-link"><a href="/forgot-password">Forgot password?</a></p>
+  <p class="auth-alt-link">Need an account? <a href="/signup">Sign up</a></p>
+</main>
+<%- include('../partials/footer') %>
+</body>
+</html>

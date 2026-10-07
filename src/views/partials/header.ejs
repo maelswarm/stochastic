@@ -1,0 +1,36 @@
+<header class="site-header">
+  <a class="brand" href="/">
+    <svg class="brand-mark" viewBox="0 0 48 48" width="24" height="24" aria-hidden="true">
+      <circle cx="24" cy="24" r="24" fill="#3b82f6"/>
+      <path d="M 10 30 L 18 22 L 24 27 L 38 13" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M 30 13 L 38 13 L 38 21" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    stochastic
+  </a>
+  <nav class="site-nav">
+    <% if (locals.currentUser) { %>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/settings">Settings</a>
+    <% } else { %>
+      <a href="/login">Log in</a>
+      <a href="/signup">Sign up</a>
+    <% } %>
+    <div class="nav-account">
+      <% if (locals.currentUser) { %>
+        <span class="nav-email"><%= currentUser.email %></span>
+      <% } %>
+      <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light/dark theme">
+        <span class="theme-icon-dark">&#9789;</span><span class="theme-icon-light">&#9728;</span>
+      </button>
+      <% if (locals.currentUser) { %>
+        <form action="/logout" method="POST" class="logout-form">
+          <button type="submit" class="logout-btn" aria-label="Log out">
+            <span class="logout-icon" aria-hidden="true">&#9099;</span>
+            <span class="logout-label">Log out</span>
+          </button>
+        </form>
+      <% } %>
+    </div>
+  </nav>
+</header>
+<script src="/js/theme.js"></script>
